@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KAS Finance</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="assets/logo.png" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/logo.png">
+</head>
+<body onload="applyStoredTheme()">
+  <div class="navbar">
+    <div>Personal Finance</div>
+    <div>
+      <select id="currency-select" onchange="changeCurrency(this.value)">
+        <option value="GBP" selected>£ GBP</option>
+        <option value="USD">$ USD</option>
+        <option value="EUR">€ EUR</option>
+      </select>
+      <button onclick="toggleTheme()" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+      <button onclick="clearAllData()">Clear Data</button>
+      <button onclick="exportData()">Export</button>
+      <!-- <input type="file" onchange="importData(event)" accept="application/json"> -->
+      <button class="custom-file-upload">
+            <input type="file" onchange="importData(event)" accept="application/json"/>
+            Import
+      </button>
+    </div>
+  </div>
+
+  <div class="container">
+    <section id="budget-section">
+      <h2>Budget</h2>
+      <div id="budget-cards"></div>
+      <button onclick="addBudgetCard()">Add Budget Item</button>
+      <div class="totals" id="budget-totals"></div>
+    </section>
+
+    <section id="wealth-section">
+      <h2>Net Wealth</h2>
+      <div id="wealth-cards"></div>
+      <button onclick="addWealthCard()">Add Asset/Liability</button>
+      <div class="totals" id="wealth-totals"></div>
+    </section>
+
+    <section id="custom-section">
+      <h2>Custom Sections</h2>
+      <div id="custom-sections"></div>
+      <button onclick="addCustomSection()">Add Custom Section</button>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+:root {
+    --bg-light: #ffffff;
+    --bg-dark: #202634;
+    --nav-dark: #283044;
+    --btn-dark: #3d8bfd;
+    --text-light: #000000;
+    --text-dark: #ffffff;
+    --el-light: #ffffff;
+    --el-dark: #283044;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+body.dark {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+.navbar {
+    background-color: var(--nav-dark);
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.navbar select,
+.navbar button,
+.navbar input[type="file"] {
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.container {
+    padding: 1rem;
+    max-width: 800px;
+    margin: auto;
+}
+
+h2 {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.5rem;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: white;
+}
+
+body.dark .card {
+    background-color: #2a3144;
+}
+
+.flex-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+input,
+select {
+    flex: 1;
+    padding: 0.5rem;
+    min-width: 120px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+button {
+    background-color: var(--btn-dark);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.totals {
+    margin-top: 1rem;
+    font-weight: bold;
+}
