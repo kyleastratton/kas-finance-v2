@@ -1,96 +1,116 @@
 :root {
-    --bg-light: #ffffff;
-    --bg-dark: #202634;
-    --nav-dark: #283044;
-    --btn-dark: #3d8bfd;
-    --text-light: #000000;
-    --text-dark: #ffffff;
-    --el-light: #ffffff;
-    --el-dark: #283044;
+  --bg: #1e1e2f;
+  --text: #ffffff;
+  --card: #2a3144;
+  --nav: #283044;
+  --accent: #3d8bfd;
+  --error: #f85149;
 }
 
 body {
-    margin: 0;
-    font-family: sans-serif;
-    background-color: var(--bg-light);
-    color: var(--text-light);
-    transition: all 0.3s ease;
-}
-
-body.dark {
-    background-color: var(--bg-dark);
-    color: var(--text-dark);
+  margin: 0;
+  font-family: sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .navbar {
-    background-color: var(--nav-dark);
-    padding: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
+  background: var(--nav);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.navbar select,
-.navbar button,
-.navbar input[type="file"] {
-    margin-left: 0.5rem;
-    margin-top: 0.5rem;
+.logo {
+  border-radius: 0.25rem;
 }
 
 .container {
-    padding: 1rem;
-    max-width: 800px;
-    margin: auto;
+  max-width: 800px;
+  margin: auto;
+  padding: 1rem;
 }
 
 h2 {
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 0.5rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
 }
 
 .card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    background-color: white;
+  background: var(--card);
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  cursor: grab;
 }
 
-body.dark .card {
-    background-color: #2a3144;
+.left {
+  display: flex;
+  gap: 1rem;
 }
 
-.flex-row {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 0.5rem;
-    flex-wrap: wrap;
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.text-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.totals {
+  margin: 1rem 0;
+  font-weight: bold;
+}
+
+button {
+  /* background: var(--accent); */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+}
+
+.primary {
+  background-color: var(--accent)
+}
+
+.error {
+  background-color: var(--error);
+}
+
+#edit-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+#edit-modal > div {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 12px;
+  width: 300px;
 }
 
 input,
 select {
-    flex: 1;
-    padding: 0.5rem;
-    min-width: 120px;
-}
-
-input[type="file"] {
-    display: none;
-}
-
-button {
-    background-color: var(--btn-dark);
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.totals {
-    margin-top: 1rem;
-    font-weight: bold;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
 }
