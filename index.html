@@ -27,20 +27,24 @@ sizes="180x180" href="assets/logo.png">
   <div class="container">
     <section>
       <h2>Budget</h2>
-      <button class="btn primary" onclick="addCard('budget')">Add Budget Item</button>
       <div id="budget-cards"></div>
+      <button class="btn primary" onclick="addCard('budget')">Add Budget Item</button>
       <div class="totals" id="budget-totals"></div>
     </section>
     <section>
+      <h2>50 / 30 / 20 Rule</h2>
+      <div class="totals" id="50-30-20-totals"></div>
+    </section>
+    <section>
       <h2>Net Wealth</h2>
-      <button class="btn primary" onclick="addCard('wealth')">Add Asset/Liability</button>
       <div id="wealth-cards"></div>
+      <button class="btn primary" onclick="addCard('wealth')">Add Asset/Liability</button>
       <div class="totals" id="wealth-totals"></div>
     </section>
     <section>
       <h2>Custom Sections</h2>
-      <button class="btn primary" onclick="addCustomSection()">Add Custom Section</button>
       <div id="custom-sections"></div>
+      <button class="btn primary" onclick="addCustomSection()">Add Custom Section</button>
     </section>
   </div>
   <div id="edit-modal">

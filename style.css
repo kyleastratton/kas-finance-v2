@@ -33,7 +33,7 @@ body {
 }
 
 h2 {
-  border-bottom: 1px solid #444;
+  /* border-bottom: 1px solid #444; */
   padding-bottom: 0.5rem;
 }
 
@@ -113,4 +113,12 @@ select {
   width: 100%;
   margin-bottom: 0.5rem;
   padding: 0.5rem;
+}
+
+section {
+  margin-bottom: 2.5rem;
+}
+
+section:not(:first-child) {
+  border-top: 1px solid #444;
 }
