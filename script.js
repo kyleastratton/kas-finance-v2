@@ -164,12 +164,19 @@ let budgetData = JSON.parse(localStorage.getItem('budgetData') || '[]');
       }
 
     function exportData() {
+        const timestamp = new Date().toISOString()
+        .replace(/T/, '-')  // Replace T with -
+        .replace(/\..+/, '') // Delete the dot and everything after
+        .replace(/:/g, '-'); // Replace all colons with -
+  
+      const filename = `finance-data-${timestamp}.json`;
+    
       const data = { budgetData, wealthData, customData };
       const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'finance-data.json';
+      a.download = filename;
       a.click();
       URL.revokeObjectURL(url);
     }
