@@ -171,7 +171,7 @@ function updateBudgetTotals() {
     if (d.type === "Expense") e += d.amount;
     if (d.type === "Savings") s += d.amount;
   });
-  document.getElementById("budget-totals").textContent = `Income: £${i.toFixed(2)} | Expenses: £${e.toFixed(2)} | Savings: £${s.toFixed(2)} | Balance: £${(i - e - s).toFixed(2)}`;
+  document.getElementById("budget-totals").textContent = `Income: £${formatCurrency(i)} | Expenses: £${formatCurrency(e)} | Savings: £${formatCurrency(s)} | Balance: £${formatCurrency(i - e - s)}`;
 }
 
 function update503020Totals() {
@@ -200,7 +200,7 @@ function updateWealthTotals() {
     if (d.type === "Asset") a += d.amount;
     if (d.type === "Liability") l += d.amount;
   });
-  document.getElementById("wealth-totals").textContent = `Assets: £${a.toFixed(2)} | Liabilities: £${l.toFixed(2)} | Balance: £${(a - l).toFixed(2)}`;
+  document.getElementById("wealth-totals").textContent = `Assets: £${formatCurrency(a)} | Liabilities: £${formatCurrency(l)} | Balance: £${formatCurrency(a - l)}`;
 }
 
 function exportData() {
