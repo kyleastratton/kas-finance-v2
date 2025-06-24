@@ -24,29 +24,42 @@ sizes="180x180" href="assets/logo.png">
       <button class="btn error" onclick="clearData()">Clear Data</button>
     </div>
   </div>
-  <div class="container">
-    <section>
-      <h2>Budget</h2>
-      <div id="budget-cards"></div>
-      <button class="btn primary" onclick="addCard('budget')">Add Budget Item</button>
-      <div class="totals" id="budget-totals"></div>
-    </section>
-    <section>
-      <h2>50 / 30 / 20 Rule</h2>
-      <div class="totals" id="50-30-20-totals"></div>
-    </section>
-    <section>
-      <h2>Net Wealth</h2>
-      <div id="wealth-cards"></div>
-      <button class="btn primary" onclick="addCard('wealth')">Add Asset/Liability</button>
-      <div class="totals" id="wealth-totals"></div>
-    </section>
-    <section>
-      <h2>Custom Sections</h2>
-      <div id="custom-sections"></div>
-      <button class="btn primary" onclick="addCustomSection()">Add Custom Section</button>
-    </section>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showView('budget')">Budget</button>
+    <button class="tab-btn" onclick="showView('wealth')">Net Worth</button>
   </div>
+  
+  <div class="container">
+    <!-- Budget View -->
+    <div id="view-budget" class="tab-view">
+      <section>
+        <h2>Budget</h2>
+        <div id="budget-cards"></div>
+        <button class="btn primary" onclick="addCard('budget')">Add Budget Item</button>
+        <div class="totals" id="budget-totals"></div>
+      </section>
+      <section>
+        <h2>50 / 30 / 20 Rule</h2>
+        <div class="totals" id="50-30-20-totals"></div>
+      </section>
+    </div>
+  
+    <!-- Wealth View -->
+    <div id="view-wealth" class="tab-view hidden">
+      <section>
+        <h2>Net Wealth</h2>
+        <div id="wealth-cards"></div>
+        <button class="btn primary" onclick="addCard('wealth')">Add Asset/Liability</button>
+        <div class="totals" id="wealth-totals"></div>
+      </section>
+      <section>
+        <h2>Custom Sections</h2>
+        <div id="custom-sections"></div>
+        <button class="btn primary" onclick="addCustomSection()">Add Custom Section</button>
+      </section>
+    </div>
+  </div>
+  
   <div id="edit-modal">
     <div>
       <h3>Edit Entry</h3>
@@ -65,6 +78,15 @@ sizes="180x180" href="assets/logo.png">
       <button class="btn primary" onclick="closeEdit()">Cancel</button>
     </div>
   </div>
+  <script>
+    function showView(view) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-view').forEach(view => view.classList.add('hidden'));
+    
+      document.querySelector(`#view-${view}`).classList.remove('hidden');
+      document.querySelector(`.tab-btn[onclick="showView('${view}')"]`).classList.add('active');
+    }
+    </script>
   <script src="script.js"></script>
 </body>
 </html>

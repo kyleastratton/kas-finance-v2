@@ -122,3 +122,42 @@ section {
 section:not(:first-child) {
   border-top: 1px solid #444;
 }
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  /* background: #323a4f; */
+  background: rgba(40,48,68,0.9);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 1rem;
+  border-radius: 8px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background: var(--accent);
+}
+
+.tab-view.hidden {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .tabs {
+    border-radius: 0;
+    max-width: 100%;
+  }
+}
+
