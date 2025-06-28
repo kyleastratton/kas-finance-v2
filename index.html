@@ -11,6 +11,7 @@ type="image/x-icon" />
 sizes="180x180" href="assets/logo.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/logo.png">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="navbar">
@@ -32,15 +33,46 @@ sizes="180x180" href="assets/logo.png">
   <div class="container">
     <!-- Budget View -->
     <div id="view-budget" class="tab-view">
+      <!-- income -->
       <section>
-        <h2>Budget</h2>
-        <div id="budget-cards"></div>
-        <button class="btn primary" onclick="addCard('budget')">Add Budget Item</button>
-        <div class="totals" id="budget-totals"></div>
+        <h2>Income</h2>
+        <div id="income-cards"></div>
+        <button class="btn primary" onclick="addCard('income')">Add Income Item</button>
+        <div class="totals" id="income-totals"></div>
       </section>
+      <!-- expenses -->
+      <section></section>
+        <h2>Expenses</h2>
+        <div id="expense-cards"></div>
+        <button class="btn primary" onclick="addCard('expense')">Add Expense Item</button>
+        <div class="totals" id="expense-totals"></div>
+      </section>
+      <!-- chart -->
+      <section>
+        <div class="center">
+          <canvas id="expenses-chart" height="200"></canvas>
+        </div>
+      </section>
+      <!-- 50/30/20 -->
       <section>
         <h2>50 / 30 / 20 Rule</h2>
-        <div class="totals" id="50-30-20-totals"></div>
+        <p>The 50/30/20 rule is a method of dividing your net income into 3 categories by percentage. Doing so helps create a high level budget for things you need (like bills), things you want (non-essentials like a dinner with mates) and savings (to provide a saftey net or plan for a large purchase).</p>
+        <ul>
+          <li>
+            50% of your income is used for needs. This can cover everything from bills to food shopping.
+          </li>
+          <li>
+              30% is spent on any wants. Think days out with your family, dinner at a restaurant or any holiday plans.
+          </li>
+          <li>
+            20% goes towards savings. This includes things like topping up your emergency savings fund or setting aside money for investments.
+          </li>
+        </ul>
+        <p>Want to follow the 50/30/20 rule? This is how the allocation would look:</p>
+        <p>Essentials: <span id="essentials"></span></p>
+        <p>Wants: <span id="wants"></span></p>
+        <p>Savings: <span id="savings"></span></p>
+        <!-- <div class="totals" id="fifty-thirty-twenty-totals"></div> -->
       </section>
     </div>
   
@@ -52,11 +84,6 @@ sizes="180x180" href="assets/logo.png">
         <button class="btn primary" onclick="addCard('wealth')">Add Asset/Liability</button>
         <div class="totals" id="wealth-totals"></div>
       </section>
-      <section>
-        <h2>Custom Sections</h2>
-        <div id="custom-sections"></div>
-        <button class="btn primary" onclick="addCustomSection()">Add Custom Section</button>
-      </section>
     </div>
   </div>
   
@@ -67,11 +94,10 @@ sizes="180x180" href="assets/logo.png">
       <input id="edit-description" placeholder="Description">
       <input id="edit-amount" type="number" placeholder="Amount">
       <select id="edit-type">
-        <option value="Income">Income</option>
-        <option value="Expense">Expense</option>
-        <option value="Savings">Savings</option>
-        <option value="Asset">Asset</option>
-        <option value="Liability">Liability</option>
+        <!-- data comes from optionSets to customise based on where rendered -->
+      </select>
+      <select id="sub-type">
+        data comes from optionSets to customise based on where rendered
       </select>
       <button class="btn primary" onclick="saveEdit()">Save</button>
       <button class="btn primary" onclick="deleteItem()">Delete</button>

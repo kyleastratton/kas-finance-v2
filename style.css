@@ -161,3 +161,18 @@ section:not(:first-child) {
   }
 }
 
+.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+canvas {
+  margin-top: 1rem;
+  max-width: 100%;
+}
+
+#expenses-chart {
+  height: 500px !important;
+  width: 500px !important;
+}
