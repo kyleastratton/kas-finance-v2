@@ -16,6 +16,7 @@ function renderCards() {
   renderSection("wealth", wealthData, "wealth-cards");
   updateIncomeTotals();
   updateExpenseTotals();
+  updateBalance();
   updateWealthTotals();
   updateFiftyThirtyTwentyTotals();
   drawChart();
@@ -205,6 +206,19 @@ function updateExpenseTotals() {
     if (d.type === "Savings") s += d.amount;
   });
   document.getElementById("expense-totals").textContent = `Total expenses: £${formatCurrency(e)}`;
+}
+
+function updateBalance() {
+  let income = 0,
+    expenses = 0;
+  incomeData.forEach((i) => {
+    if (i.type === "Income") income += i.amount;
+  });
+  expenseData.forEach((e) => {
+    if (e.type === "Expense") expenses += e.amount;
+  });
+  let total = income - expenses;
+  document.getElementById("balance").textContent = `Balance: £${formatCurrency(total)}`;
 }
 
 function updateFiftyThirtyTwentyTotals() {
