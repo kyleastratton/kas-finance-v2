@@ -95,7 +95,9 @@ sizes="180x180" href="assets/logo.png">
   <div id="edit-modal">
     <div>
       <h3>Edit Entry</h3>
-      <input id="edit-icon" placeholder="Icon">
+      <input id="edit-icon-search" placeholder="Search logo by name" oninput="filterLogos()">
+      <div id="logo-grid" class="logo-grid"></div>
+      <input type="hidden" id="edit-icon">
       <input id="edit-description" placeholder="Description">
       <input id="edit-amount" type="number" placeholder="Amount">
       <select id="edit-type">
