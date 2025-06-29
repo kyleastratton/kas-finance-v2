@@ -93,7 +93,6 @@ const optionSets = {
 };
 
 function populateDropdown(type) {
-  console.log("Hello, World")
   const select = document.getElementById("edit-type");
   select.innerHTML = ""; // Clear existing options
 
@@ -113,12 +112,13 @@ function populateDropdown(type) {
 
 const subTypeOptions = {
   income: ["Salary", "Interest", "Loan"],
-  expense: ["Mortgage", "Rent", "Mobile", "Broadband"],
-  wealth: ["Cash", "Property", "Vehicle"]
+  expense: ["Mortgage payments", "Rent", "Property taxes", "Home insurance", "Maintenance & repairs", "HOA or factor fees", "Security systems", "Garden or landscaping services", "Electricity", "Gas\/Heating", "Water/Sewage", "Waste Disposal", "Broadband/Internet", "Mobile phone", "TV license", "Streaming services", "Car payments", "Fuel/petrol", "Car insurance", "MOT and servicing", "Repairs", "Road tax", "Parking fees", "Public transportation", "Rideshare or taxi", "Supermarket spending", "Household supplies", "Pet food & supplies", "Baby products", "Medical insurance", "Prescriptions", "Dental care", "Eye care", "Therapy or counselling", "Life insurance", "Critical illness or income protection cover", "Clothing and shoes", "Haircuts and grooming", "Gym memberships", "Subscriptions", "Hobbies & leisure activities", "Dining out & takeaways", "Gifts & special occasions", "Charity donations", "Tuition fees", "School supplies", "Childcare or nursery fees", "Kids activities", "Uniforms", "Flights", "Accommodation", "Travel insurance", "Transport (car hire, rail, etc.)", "Meals and activities", "Credit card payments", "Loan repayments", "Overdraft charges", "Emergency fund contributions", "Investment accounts", "Retirement/pension savings", "Home office expenses", "Legal or professional fees", "Postage & couriers", "Unplanned or one-off purchases"],
+  wealth: ["Cash (wallet, safe, physical cash)", "Current accounts", "Savings accounts", "Fixed deposits", "Stocks and shares", "Mutual funds", "Cryptocurrency", "Retirement accounts (e.g. pension, 401k, SIPP)", "Real estate property (primary residence)", "Real estate property (rental or second home)", "Vehicles (car, motorcycle, etc.)", "Collectibles (art, antiques, etc.)", "Jewellery", "Business ownership/equity", "Receivables (loans you've made)", "Bonds", "Commodities (e.g. gold, silver)", "Investment trusts", "ISAs (Individual Savings Accounts)", "Employer stock options", "Restricted stock units (RSUs)", "Life insurance with cash value", "Intellectual property (royalties, trademarks)", "Vested benefits", "Mortgage balance", "Home equity loan", "Car loan", "Credit card balances", "Student loan", "Personal loans", "Overdraft", "Buy now pay later (BNPL)", "Business loan", "Outstanding taxes", "Medical bills", "Child support or alimony", "Payday loans", "Lines of credit", "Unpaid utility bills", "Lease obligations", "Legal settlements or obligations", "Guarantor liabilities", "Loans from friends/family", "Unpaid insurance premiums"
+]
 };
 
 function populateSubType(type) {
-  const subSelect = document.getElementById("sub-type");
+  const subSelect = document.getElementById("edit-sub-type");
   subSelect.innerHTML = "";
 
   (subTypeOptions[type] || []).forEach(sub => {
@@ -142,18 +142,18 @@ function openEdit(section, i, j = -1) {
   document.getElementById("edit-description").value = item.description;
   document.getElementById("edit-amount").value = item.amount;
   document.getElementById("edit-type").value = item.type;
-  document.getElementById("sub-type").value = item.subType;
+  document.getElementById("edit-sub-type").value = item.subType;
   document.getElementById("edit-modal").style.display = "flex";
 }
 
 function saveEdit() {
-  const { section, index, subIndex } = currentEdit;
+  const { section, index } = currentEdit;
   const item = {
     icon: document.getElementById("edit-icon").value,
     description: document.getElementById("edit-description").value,
     amount: parseFloat(document.getElementById("edit-amount").value),
     type: document.getElementById("edit-type").value,
-    subType: document.getElementById("sub-type").value,
+    subType: document.getElementById("edit-sub-type").value,
   };
   if (section === "income") incomeData[index] = item;
   else if (section === "expense") expenseData[index] = item;
@@ -164,7 +164,7 @@ function saveEdit() {
 }
 
 function deleteItem() {
-  const { section, index, subIndex } = currentEdit;
+  const { section, index } = currentEdit;
   if (confirm("Delete this item?")) {
     if (section === "income") {
       incomeData.splice(index, 1);
