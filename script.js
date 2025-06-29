@@ -1504,6 +1504,10 @@ const logos = [
   {
     "name": "Example",
     "image": "./assets/logos/example.png"
+  },
+  {
+    "name": "Cashroom",
+    "image": "./assets/logos/cashroom.jpeg"
   }
 ];
 
