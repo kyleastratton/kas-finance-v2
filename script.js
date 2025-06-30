@@ -159,6 +159,7 @@ const subTypeOptions = {
     "HOA or factor fees",
     "Security systems",
     "Garden or landscaping services",
+    "Utilities",
     "Electricity",
     "Gas/Heating",
     "Water/Sewage",
