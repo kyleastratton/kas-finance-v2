@@ -84,8 +84,7 @@ function renderSection(section, data, containerId) {
               </div>
             <div class="text-block">
               <span class="title">${item.description}</span>
-              <span class="subtext">${item.type}</span>
-              <span class="subtext">${item.subType}</span>
+              <span class="subtext">${item.type} | ${item.subType}</span>
             </div>
           </div>
           <div class="amount">£${amount}</div>
