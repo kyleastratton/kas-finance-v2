@@ -37,6 +37,10 @@ h2 {
   padding-bottom: 0.5rem;
 }
 
+.subtext {
+  font-size: 0.8rem;
+}
+
 .card {
   background: var(--card);
   margin: 0.5rem 0;
@@ -74,7 +78,7 @@ h2 {
   font-weight: bold;
 }
 
-button {
+.btn {
   /* background: var(--accent); */
   color: white;
   border: none;
@@ -128,10 +132,10 @@ section:not(:first-child) {
 .tabs {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  /* gap: 1rem; */
   /* background: #323a4f; */
   background: rgba(40,48,68,0.9);
-  padding: 1rem;
+  /* padding: 1rem; */
   margin-bottom: 1rem;
   max-width: 800px;
   margin: auto;
@@ -144,8 +148,10 @@ section:not(:first-child) {
   border: 1px solid var(--accent);
   color: var(--text);
   padding: 0.5rem 1rem;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   cursor: pointer;
+  height: 100%;
+  width: 33.3%;
 }
 
 .tab-btn.active {
@@ -161,6 +167,24 @@ section:not(:first-child) {
     border-radius: 0;
     max-width: 100%;
   }
+  #expenses-chart {
+    height: 400px !important;
+    width: 500px !important;
+  }
+}
+
+@media only screen and (max-width: 500) {
+  #expenses-chart {
+    height: 300px !important;
+    width: 400px !important;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #expenses-chart {
+    height: 500px !important;
+    width: 500px !important;
+  }
 }
 
 .center {
@@ -175,8 +199,8 @@ canvas {
 }
 
 #expenses-chart {
-  height: 400px !important;
-  width: 500px !important;
+  height: 500px;
+  width: 500px;
 }
 
 .logo-grid {

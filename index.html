@@ -26,7 +26,8 @@ sizes="180x180" href="assets/logo.png">
     </div>
   </div>
   <div class="tabs">
-    <button class="tab-btn active" onclick="showView('budget')">Budget</button>
+    <button class="tab-btn active" onclick="showView('budget')">Monthly Budget</button>
+    <button class="tab-btn" onclick="showView('othercosts')">Other Costs</button>
     <button class="tab-btn" onclick="showView('wealth')">Net Worth</button>
   </div>
   
@@ -78,6 +79,18 @@ sizes="180x180" href="assets/logo.png">
         <p>Wants: <span id="wants"></span></p>
         <p>Savings: <span id="savings"></span></p>
         <!-- <div class="totals" id="fifty-thirty-twenty-totals"></div> -->
+      </section>
+    </div>
+
+    <!-- Other Costs -->
+
+    <div id="view-othercosts" class="tab-view hidden">
+      <!-- Non-Monthly Bills -->
+      <section>
+        <h2>Test</h2>
+        <div id="othercosts-cards"></div>
+        <button class="btn primary" onclick="addCard('othercosts')">Add Other Cost Item</button>
+        <div class="totals" id="othercosts-totals"></div>
       </section>
     </div>
   
