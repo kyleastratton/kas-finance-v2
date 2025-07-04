@@ -413,7 +413,7 @@ function updateWealthTotals() {
     "wealth-totals"
   ).textContent = `Assets: £${formatCurrency(
     a
-  )} | Liabilities: £${formatCurrency(l)} | Balance: £${formatCurrency(a - l)}`;
+  )} | Liabilities: £${formatCurrency(l)} | Net Worth: £${formatCurrency(a - l)}`;
 }
 
 function exportData() {
