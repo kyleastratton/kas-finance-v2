@@ -308,14 +308,13 @@ const subTypeOptions = {
 };
 
 function populateSubType(type) {
-  const subSelect = document.getElementById("edit-sub-type");
-  subSelect.innerHTML = "";
+  const dataList = document.getElementById("sub-type-list");
+  dataList.innerHTML = "";
 
   (subTypeOptions[type] || []).forEach((sub) => {
     const option = document.createElement("option");
     option.value = sub;
-    option.textContent = sub;
-    subSelect.appendChild(option);
+    dataList.appendChild(option);
   });
 }
 

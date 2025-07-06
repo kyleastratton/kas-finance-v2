@@ -116,9 +116,8 @@ sizes="180x180" href="assets/logo.png">
       <select id="edit-type">
         <!-- data comes from optionSets to customise based on where rendered -->
       </select>
-      <select id="edit-sub-type">
-        data comes from optionSets to customise based on where rendered
-      </select>
+      <input list="sub-type-list" id="edit-sub-type" placeholder="Select or type a subtype">
+      <datalist id="sub-type-list"></datalist>
       <button class="btn primary" onclick="saveEdit()">Save</button>
       <button class="btn primary" onclick="deleteItem()">Delete</button>
       <button class="btn primary" onclick="closeEdit()">Cancel</button>
