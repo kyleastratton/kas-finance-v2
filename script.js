@@ -22,7 +22,6 @@ function renderCards() {
   updateBalance();
   updateOtherCostsTotals();
   updateWealthTotals();
-  updateFiftyThirtyTwentyTotals();
   drawChart();
 }
 
@@ -433,20 +432,6 @@ function updateBalance() {
   document.getElementById("balance").textContent = `Balance: £${formatCurrency(
     total
   )}`;
-}
-
-function updateFiftyThirtyTwentyTotals() {
-  let i = 0;
-  incomeData.forEach((d) => {
-    if (d.type === "Income") i += d.amount;
-  });
-  let e = i * 0.5;
-  let w = i * 0.3;
-  let s = i * 0.2;
-  let t = e + w + s;
-  document.getElementById("essentials").innerHTML = `£${formatCurrency(e)}`;
-  document.getElementById("wants").innerHTML = `£${formatCurrency(w)}`;
-  document.getElementById("savings").innerHTML = `£${formatCurrency(s)}`;
 }
 
 function updateOtherCostsTotals() {
