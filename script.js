@@ -303,15 +303,16 @@ const subTypeOptions = {
 };
 
 function populateSubType(type) {
-    const dataList = document.getElementById("sub-type-list");
-    dataList.innerHTML = "";
+  const dataList = document.getElementById("sub-type-list");
+  dataList.innerHTML = "";
 
-    (subTypeOptions[type] || []).forEach((sub) => {
-        const option = document.createElement("option");
-        option.value = sub;
-        dataList.appendChild(option);
-    });
+  (subTypeOptions[type] || []).forEach((sub) => {
+    const option = document.createElement("option");
+    option.value = sub;
+    dataList.appendChild(option);
+  });
 }
+
 
 function openEdit(section, i, j = -1) {
     currentEdit = { section, index: i, subIndex: j };
