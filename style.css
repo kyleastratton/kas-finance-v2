@@ -5,6 +5,7 @@
   --nav: #283044;
   --accent: #3d8bfd;
   --error: #f85149;
+  --success: #49f8a0;
 }
 
 body {
@@ -32,9 +33,17 @@ body {
   padding: 1rem;
 }
 
-h2 {
-  /* border-bottom: 1px solid #444; */
-  padding-bottom: 0.5rem;
+.positive {
+  color: var(--success) !important;
+}
+
+.negative {
+  color: var(--error) !important;
+}
+
+hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .subtext {
@@ -76,6 +85,7 @@ h2 {
 .totals {
   margin: 1rem 0;
   font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .btn {
@@ -121,13 +131,9 @@ select {
   padding: 0.5rem;
 }
 
-section {
-  margin-bottom: 2rem;
-}
-
-section:not(:first-child) {
+/* section:not(:first-child) {
   border-top: 1px solid #444;
-}
+} */
 
 .tabs {
   display: flex;

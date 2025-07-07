@@ -1,122 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KAS Finance</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="icon" href="assets/logo.png" type="image/x-icon" />
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/logo.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/logo.png">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#0d47a1">
-  <!-- Required for iOS to launch standalone -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="KAS Finance">
-  <!-- iOS home screen icon -->
-  <link rel="apple-touch-icon" href="/your-repo-name/assets/logo.png">
-</head>
-<body>
-  <div class="navbar">
-    <!-- <div>Finance App v2</div> -->
-     <img class="logo" src="assets/logo.png" width="50" height="50">
-    <div>
-      <button class="btn primary" onclick="exportData()">Export</button>
-      <button class="btn primary" onclick="document.getElementById('import-file').click()">Import</button>
-      <input type="file" id="import-file" style="display:none" onchange="importData(event)"/>
-      <!-- <button onclick="toggleTheme()">Toggle Theme</button> -->
-      <button class="btn error" onclick="clearData()">Clear Data</button>
-    </div>
-  </div>
-  <div class="tabs">
-    <button class="tab-btn active" onclick="showView('budget')">Monthly Budget</button>
-    <button class="tab-btn" onclick="showView('othercosts')">Other Costs</button>
-    <button class="tab-btn" onclick="showView('wealth')">Net Worth</button>
-  </div>
-  
-  <div class="container">
-    <!-- Budget View -->
-    <div id="view-budget" class="tab-view">
-      <!-- income -->
-      <section>
-        <h2>Income</h2>
-        <div id="income-cards"></div>
-        <button class="btn primary" onclick="addCard('income')">Add Income Item</button>
-        <div class="totals" id="income-totals"></div>
-      </section>
-      <!-- expenses -->
-      <section></section>
-        <h2>Expenses</h2>
-        <div id="expense-cards"></div>
-        <button class="btn primary" onclick="addCard('expense')">Add Expense Item</button>
-        <div class="totals" id="expense-totals"></div>
-      </section>
-      <section></section>
-        <h2>Remaining Balance (Income - Expenses)</h2>
-        <div class="totals" id="balance"></div>
-      </section>
-      <!-- chart -->
-      <section>
-        <h2>Expense Breakdown</h2>
-        <div class="center">
-          <canvas id="expenses-chart" height="200"></canvas>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>KAS Finance</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" href="assets/logo.png" type="image/x-icon" />
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/logo.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/logo.png" />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#0d47a1" />
+        <!-- Required for iOS to launch standalone -->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="KAS Finance" />
+        <!-- iOS home screen icon -->
+        <link rel="apple-touch-icon" href="/your-repo-name/assets/logo.png" />
+    </head>
+    <body>
+        <div class="navbar">
+            <!-- <div>Finance App v2</div> -->
+            <img class="logo" src="assets/logo.png" width="50" height="50" />
+            <div>
+                <button class="btn primary" onclick="exportData()">Export</button>
+                <button class="btn primary" onclick="document.getElementById('import-file').click()">Import</button>
+                <input type="file" id="import-file" style="display: none" onchange="importData(event)" />
+                <!-- <button onclick="toggleTheme()">Toggle Theme</button> -->
+                <button class="btn error" onclick="clearData()">Clear Data</button>
+            </div>
         </div>
-      </section>
-    </div>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showView('budget')">Monthly Budget</button>
+            <button class="tab-btn" onclick="showView('othercosts')">Other Costs</button>
+            <button class="tab-btn" onclick="showView('wealth')">Net Worth</button>
+        </div>
 
-    <!-- Other Costs -->
+        <div class="container">
+            <!-- Budget View -->
+            <div id="view-budget" class="tab-view">
+                <!-- Income -->
+                <section>
+                    <h2>Income <span class="totals" id="income-totals"></span></h2>
+                    <div id="income-cards"></div>
+                    <button class="btn primary" onclick="addCard('income')">Add Income Item</button>
+                </section>
+                <hr>
+                <!-- Expenses -->
+                <section>
+                    <h2>Expenses <span class="totals" id="expense-totals"></span></h2>
+                    <div id="expense-cards"></div>
+                    <button class="btn primary" onclick="addCard('expense')">Add Expense Item</button>
+                </section>
+                <hr>
+                <!-- Remaining Balance -->
+                <!-- <div style="background: #2a3144; width: 96%; border-radius: 0.25rem; height: 6rem; padding: 1rem; display: flex; align-items: center; justify-content: center;"> -->
+                  <div class="card">
+                    <h2 style="margin-right: 1rem;">Remaining Balance:</h2>
+                    <h2 id="balance"></h2>
+                </div>
+                <hr>
+                <!-- Chart -->
+                <section>
+                    <h2>Expense Breakdown</h2>
+                    <div class="center">
+                        <canvas id="expenses-chart" height="200"></canvas>
+                    </div>
+                </section>
+            </div>
 
-    <div id="view-othercosts" class="tab-view hidden">
-      <!-- Non-Monthly Bills -->
-      <section>
-        <h2>Test</h2>
-        <div id="othercosts-cards"></div>
-        <button class="btn primary" onclick="addCard('othercosts')">Add Other Cost Item</button>
-        <div class="totals" id="othercosts-totals"></div>
-      </section>
-    </div>
-  
-    <!-- Wealth View -->
-    <div id="view-wealth" class="tab-view hidden">
-      <section>
-        <h2>Net Wealth</h2>
-        <div id="wealth-cards"></div>
-        <button class="btn primary" onclick="addCard('wealth')">Add Asset/Liability</button>
-        <div class="totals" id="wealth-totals"></div>
-      </section>
-    </div>
-  </div>
-  
-  <div id="edit-modal">
-    <div>
-      <h3>Edit Entry</h3>
-      <input id="edit-icon-search" placeholder="Search logo by name" oninput="filterLogos()">
-      <div id="logo-grid" class="logo-grid"></div>
-      <input type="hidden" id="edit-icon">
-      <input id="edit-description" placeholder="Description">
-      <input id="edit-amount" type="number" placeholder="Amount">
-      <select id="edit-type">
-        <!-- data comes from optionSets to customise based on where rendered -->
-      </select>
-      <input list="sub-type-list" id="edit-sub-type" placeholder="Select or type a subtype">
-      <datalist id="sub-type-list"></datalist>
-      <button class="btn primary" onclick="saveEdit()">Save</button>
-      <button class="btn primary" onclick="deleteItem()">Delete</button>
-      <button class="btn primary" onclick="closeEdit()">Cancel</button>
-    </div>
-  </div>
-  <script>
-    function showView(view) {
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.tab-view').forEach(view => view.classList.add('hidden'));
-    
-      document.querySelector(`#view-${view}`).classList.remove('hidden');
-      document.querySelector(`.tab-btn[onclick="showView('${view}')"]`).classList.add('active');
-    }
-    </script>
-  <script src="script.js"></script>
-</body>
+            <!-- Other Costs -->
+
+            <div id="view-othercosts" class="tab-view hidden">
+                <!-- Non-Monthly Bills -->
+                <section>
+                    <h2>Test</h2>
+                    <div id="othercosts-cards"></div>
+                    <button class="btn primary" onclick="addCard('othercosts')">Add Other Cost Item</button>
+                    <div class="totals" id="othercosts-totals"></div>
+                </section>
+            </div>
+
+            <!-- Wealth View -->
+            <div id="view-wealth" class="tab-view hidden">
+                <section>
+                    <h2>Net Wealth</h2>
+                    <div id="wealth-cards"></div>
+                    <button class="btn primary" onclick="addCard('wealth')">Add Asset/Liability</button>
+                    <div class="totals" id="wealth-totals"></div>
+                </section>
+            </div>
+        </div>
+
+        <div id="edit-modal">
+            <div>
+                <h3>Edit Entry</h3>
+                <input id="edit-icon-search" placeholder="Search logo by name" oninput="filterLogos()" />
+                <div id="logo-grid" class="logo-grid"></div>
+                <input type="hidden" id="edit-icon" />
+                <input id="edit-description" placeholder="Description" />
+                <input id="edit-amount" type="number" placeholder="Amount" />
+                <select id="edit-type">
+                    <!-- data comes from optionSets to customise based on where rendered -->
+                </select>
+                <input list="sub-type-list" id="edit-sub-type" placeholder="Select or type a subtype" />
+                <datalist id="sub-type-list"></datalist>
+                <button class="btn primary" onclick="saveEdit()">Save</button>
+                <button class="btn primary" onclick="deleteItem()">Delete</button>
+                <button class="btn primary" onclick="closeEdit()">Cancel</button>
+            </div>
+        </div>
+        <script>
+            function showView(view) {
+                document.querySelectorAll(".tab-btn").forEach((btn) => btn.classList.remove("active"));
+                document.querySelectorAll(".tab-view").forEach((view) => view.classList.add("hidden"));
+
+                document.querySelector(`#view-${view}`).classList.remove("hidden");
+                document.querySelector(`.tab-btn[onclick="showView('${view}')"]`).classList.add("active");
+            }
+        </script>
+        <script src="script.js"></script>
+    </body>
 </html>
