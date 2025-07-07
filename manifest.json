@@ -1,7 +1,7 @@
 {
     "name": "KAS Finance",
     "short_name": "Finance",
-    "start_url": "/index.html",
+    "start_url": "/kas-finance-v2/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#0d47a1",
