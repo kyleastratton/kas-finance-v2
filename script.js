@@ -1542,6 +1542,14 @@ function filterLogos() {
             name: "Cashroom",
             image: "./assets/logos/cashroom.jpeg",
         },
+        {
+          name: "car-vehicle",
+          image: "./assets/logos/car.png",
+      },
+      {
+        name: "home-property-house",
+        image: "./assets/logos/home.png",
+    },
     ];
 
     logos
