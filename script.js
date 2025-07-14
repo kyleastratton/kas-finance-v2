@@ -303,16 +303,15 @@ const subTypeOptions = {
 };
 
 function populateSubType(type) {
-  const dataList = document.getElementById("sub-type-list");
-  dataList.innerHTML = "";
+    const dataList = document.getElementById("sub-type-list");
+    dataList.innerHTML = "";
 
-  (subTypeOptions[type] || []).forEach((sub) => {
-    const option = document.createElement("option");
-    option.value = sub;
-    dataList.appendChild(option);
-  });
+    (subTypeOptions[type] || []).forEach((sub) => {
+        const option = document.createElement("option");
+        option.value = sub;
+        dataList.appendChild(option);
+    });
 }
-
 
 function openEdit(section, i, j = -1) {
     currentEdit = { section, index: i, subIndex: j };
@@ -1543,13 +1542,41 @@ function filterLogos() {
             image: "./assets/logos/cashroom.jpeg",
         },
         {
-          name: "car-vehicle",
-          image: "./assets/logos/car.png",
-      },
-      {
-        name: "home-property-house",
-        image: "./assets/logos/home.png",
-    },
+            name: "car-vehicle",
+            image: "./assets/logos/car.png",
+        },
+        {
+            name: "home-property-house",
+            image: "./assets/logos/home.png",
+        },
+        {
+            name: "car-vehicle",
+            image: "./assets/logos/car.jpeg",
+        },
+        {
+            name: "car-vehicle",
+            image: "./assets/logos/car1.png",
+        },
+        {
+            name: "clothing-clothes",
+            image: "./assets/logos/clothing.png",
+        },
+        {
+            name: "groceries-shopping",
+            image: "./assets/logos/groceries.png",
+        },
+        {
+            name: "house-home-property",
+            image: "./assets/logos/house.png",
+        },
+        {
+            name: "home-property-house",
+            image: "./assets/logos/house1.png",
+        },
+        {
+            name: "savings-save",
+            image: "./assets/logos/savings.png",
+        },
     ];
 
     logos
