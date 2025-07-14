@@ -23,6 +23,7 @@ function renderCards() {
     updateOtherCostsTotals();
     updateWealthTotals();
     drawChart();
+    updateMetrics();
 }
 
 function formatCurrency(number) {
@@ -387,6 +388,49 @@ function closeEdit() {
     document.getElementById("edit-modal").style.display = "none";
 }
 
+function updateMetrics() {
+    const metricsIncome = document.getElementById("metrics-income")
+    const metricsExpenses = document.getElementById("metrics-expenses")
+    const metricsRemaining = document.getElementById("metrics-remaining")
+    const metricsNetWealth = document.getElementById("metrics-net-wealth")
+
+    //  Income Data
+    let income = 0;
+    incomeData.forEach((incomeData) => {
+        if (incomeData.type === "Income") income += incomeData.amount;
+    })
+    metricsIncome.textContent = `£${formatCurrency(income)}`;
+
+    // Expense Data
+    let expenses = 0;
+    expenseData.forEach((expenseData) => {
+        if (expenseData.type === "Expense") expenses += expenseData.amount;
+    })
+    metricsExpenses.textContent = `£${formatCurrency(expenses)}`;
+
+    // Remaining balance data
+    let total = income - expenses;
+    if (total > 0) {
+        metricsRemaining.classList.add("positive");
+    } else {
+        metricsRemaining.classList.add("negative");
+    }
+    metricsRemaining.textContent = `£${formatCurrency(total)}`;
+
+    // Net wealth
+    let netWealth = 0;
+    wealthData.forEach((wealth) => {
+        if (wealth.type === "Asset") netWealth += wealth.amount;
+        if (wealth.type === "Liability") netWealth -= wealth.amount;
+    })
+    if (netWealth > 0) {
+        metricsNetWealth.classList.add("positive");
+    } else {
+        metricsNetWealth.classList.add("negative");
+    }
+    metricsNetWealth.textContent = `£${formatCurrency(netWealth)}`;
+}
+
 function updateIncomeTotals() {
     let i = 0,
         e = 0,
@@ -423,7 +467,6 @@ function updateBalance() {
         if (e.type === "Expense") expenses += e.amount;
     });
     let total = income - expenses;
-    console.log("check", total > 0);
     if (total > 0) {
         balance.classList.add("positive");
     } else {

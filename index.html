@@ -31,6 +31,28 @@
                 <button class="btn error" onclick="clearData()">Clear Data</button>
             </div>
         </div>
+
+        <!-- Metrics -->
+        <div class="metrics">
+            <div class="metrics-card">
+                <p>Income</p>
+                <span style="margin-bottom: 1rem;" id="metrics-income"></span>
+            </div>
+            <div class="metrics-card">
+                <p>Expenses</p>
+                <span id="metrics-expenses"></span>
+            </div>
+            <div class="metrics-card">
+                <p>Remaining</p>
+                <span id="metrics-remaining"></span>
+            </div>
+            <div class="metrics-card">
+                <p>Net Wealth</p>
+                <span id="metrics-net-wealth"></span>
+            </div>
+        </div>
+
+        <!-- Tabs -->
         <div class="tabs">
             <button class="tab-btn active" onclick="showView('budget')">Monthly Budget</button>
             <button class="tab-btn" onclick="showView('othercosts')">Other Costs</button>
@@ -46,21 +68,24 @@
                     <div id="income-cards"></div>
                     <button class="btn primary" onclick="addCard('income')">Add Income Item</button>
                 </section>
-                <hr class="gutter--top--bottom">
+                <hr class="gutter--top--bottom" />
+
                 <!-- Expenses -->
                 <section>
                     <h2>Expenses <span class="totals" id="expense-totals"></span></h2>
                     <div id="expense-cards"></div>
                     <button class="btn primary" onclick="addCard('expense')">Add Expense Item</button>
                 </section>
-                <hr class="gutter--top--bottom">
+                <hr class="gutter--top--bottom" />
+
                 <!-- Remaining Balance -->
                 <!-- <div style="background: #2a3144; width: 96%; border-radius: 0.25rem; height: 6rem; padding: 1rem; display: flex; align-items: center; justify-content: center;"> -->
-                  <div class="card">
-                    <h2 style="margin-right: 1rem;">Remaining Balance:</h2>
+                <div class="card">
+                    <h2 style="margin-right: 1rem">Remaining Balance:</h2>
                     <h2 id="balance"></h2>
                 </div>
-                <hr class="gutter--top--bottom">
+                <hr class="gutter--top--bottom" />
+
                 <!-- Chart -->
                 <section>
                     <h2>Expense Breakdown</h2>
@@ -71,7 +96,6 @@
             </div>
 
             <!-- Other Costs -->
-
             <div id="view-othercosts" class="tab-view hidden">
                 <!-- Non-Monthly Bills -->
                 <section>
@@ -98,21 +122,26 @@
                 <h3>Edit Entry</h3>
                 <label for="edit-description" class="label">Description</label>
                 <input class="margin-top" id="edit-description" placeholder="Description" />
-                <hr>
+                <hr />
                 <label for="edit-amount" class="label">Amount</label>
                 <input class="margin-top" id="edit-amount" type="number" placeholder="Amount" />
-                <hr>
+                <hr />
                 <label for="edit-type" class="label">Type</label>
                 <select class="margin-top" id="edit-type" placeholder="Select type">
                     <!-- data comes from optionSets to customise based on where rendered -->
                 </select>
-                <hr>
+                <hr />
                 <label for="sub-type-list" class="label">Category</label>
                 <input class="margin-top" list="sub-type-list" id="edit-sub-type" placeholder="Select subtype" />
                 <datalist id="sub-type-list"></datalist>
-                <hr>
-                <label for="edit-icon-search"  class="label">Logo</label>
-                <input class="margin-top" id="edit-icon-search" placeholder="Search logo by name" oninput="filterLogos()" />
+                <hr />
+                <label for="edit-icon-search" class="label">Logo</label>
+                <input
+                    class="margin-top"
+                    id="edit-icon-search"
+                    placeholder="Search logo by name"
+                    oninput="filterLogos()"
+                />
                 <div id="logo-grid" class="logo-grid margin-top"></div>
                 <input type="hidden" id="edit-icon" />
                 <button class="btn primary" onclick="saveEdit()">Save</button>
