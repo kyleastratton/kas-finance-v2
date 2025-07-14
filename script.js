@@ -432,27 +432,19 @@ function updateMetrics() {
 }
 
 function updateIncomeTotals() {
-    let i = 0,
-        e = 0,
-        s = 0;
-    incomeData.forEach((d) => {
-        if (d.type === "Income") i += d.amount;
-        if (d.type === "Expense") e += d.amount;
-        if (d.type === "Savings") s += d.amount;
+    let income = 0;
+    incomeData.forEach((data) => {
+        income += data.amount;
     });
-    document.getElementById("income-totals").textContent = `- Total: £${formatCurrency(i)}`;
+    document.getElementById("income-totals").textContent = `- Total: £${formatCurrency(income)}`;
 }
 
 function updateExpenseTotals() {
-    let i = 0,
-        e = 0,
-        s = 0;
-    expenseData.forEach((d) => {
-        if (d.type === "Income") i += d.amount;
-        if (d.type === "Expense") e += d.amount;
-        if (d.type === "Savings") s += d.amount;
+    let expenses = 0;
+    expenseData.forEach((data) => {
+        expenses += data.amount;
     });
-    document.getElementById("expense-totals").textContent = `- Total: £${formatCurrency(e)}`;
+    document.getElementById("expense-totals").textContent = `- Total: £${formatCurrency(expenses)}`;
 }
 
 // Remaining balance update
@@ -477,22 +469,32 @@ function updateBalance() {
 
 function updateOtherCostsTotals() {
     let i = 0;
-    otherCostsData.forEach((o) => {
-        i += o.amount;
+    otherCostsData.forEach((data) => {
+        i += data.amount;
     });
     document.getElementById("othercosts-totals").textContent = `Total other costs: £${formatCurrency(i)}`;
 }
 
 function updateWealthTotals() {
-    let a = 0,
-        l = 0;
-    wealthData.forEach((d) => {
-        if (d.type === "Asset") a += d.amount;
-        if (d.type === "Liability") l += d.amount;
+    const assetTotal = document.getElementById("assets-total");
+    const liabilityTotal = document.getElementById("liabilities-total");
+    const netWealthTotal = document.getElementById("net-wealth-total");
+
+    let assets = 0,
+        liabilities = 0;
+    wealthData.forEach((data) => {
+        if (data.type === "Asset") assets += data.amount;
+        if (data.type === "Liability") liabilities += data.amount;
     });
-    document.getElementById("wealth-totals").textContent = `Assets: £${formatCurrency(
-        a
-    )} | Liabilities: £${formatCurrency(l)} | Net Worth: £${formatCurrency(a - l)}`;
+    let wealth = assets - liabilities;
+    if (wealth > 0) {
+        netWealthTotal.classList.add("positive");
+    } else {
+        netWealthTotal.classList.add("negative");
+    }
+    assetTotal.textContent = `£${formatCurrency(assets)}`
+    liabilityTotal.textContent = `£${formatCurrency(liabilities)}`
+    netWealthTotal.textContent = `£${formatCurrency(wealth)}`;
 }
 
 function exportData() {

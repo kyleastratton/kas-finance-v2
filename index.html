@@ -36,7 +36,7 @@
         <div class="metrics">
             <div class="metrics-card">
                 <p>Income</p>
-                <span style="margin-bottom: 1rem;" id="metrics-income"></span>
+                <span style="margin-bottom: 1rem" id="metrics-income"></span>
             </div>
             <div class="metrics-card">
                 <p>Expenses</p>
@@ -79,7 +79,6 @@
                 <hr class="gutter--top--bottom" />
 
                 <!-- Remaining Balance -->
-                <!-- <div style="background: #2a3144; width: 96%; border-radius: 0.25rem; height: 6rem; padding: 1rem; display: flex; align-items: center; justify-content: center;"> -->
                 <div class="card">
                     <h2 style="margin-right: 1rem">Remaining Balance:</h2>
                     <h2 id="balance"></h2>
@@ -112,7 +111,20 @@
                     <h2>Net Wealth</h2>
                     <div id="wealth-cards"></div>
                     <button class="btn primary" onclick="addCard('wealth')">Add Asset/Liability</button>
-                    <div class="totals" id="wealth-totals"></div>
+                    <hr class="gutter--top--bottom" />
+                    <h2>Totals</h2>
+                    <div class="card">
+                        <h2 style="margin-right: 1rem">Assets:</h2>
+                        <h2 id="assets-total"></h2>
+                    </div>
+                    <div class="card">
+                        <h2 style="margin-right: 1rem">Liabilities:</h2>
+                        <h2 id="liabilities-total"></h2>
+                    </div>
+                    <div class="card">
+                        <h2 style="margin-right: 1rem">Net Wealth:</h2>
+                        <h2 id="net-wealth-total"></h2>
+                    </div>
                 </section>
             </div>
         </div>
