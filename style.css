@@ -221,7 +221,7 @@ select {
   background: transparent;
   border: 1px solid var(--accent);
   color: var(--text);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   /* border-radius: 8px; */
   cursor: pointer;
   height: 100%;
