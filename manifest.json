@@ -1,10 +1,10 @@
 {
-    "name": "Todo Lists",
-    "short_name": "Lists",
-    "start_url": "/todo-list/index.html",
+    "name": "KAS Finance",
+    "short_name": "Finance",
+    "start_url": "/kas-finance-v2/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#4361ee",
+    "theme_color": "#0d47a1",
     "icons": [
       {
         "src": "/assets/logo.png",
